@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Você 🤍</title>
+    <title>Para Você 🌟</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         * {
             margin: 0;
@@ -21,41 +23,48 @@
             height: 100vh;
             overflow: hidden;
             padding: 20px;
+            position: relative;
         }
         .container {
-            width: 100%;
+            width: 90%;
             max-width: 500px;
-            padding: 20px;
+            min-height: 300px;
+            padding: 25px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
             transition: opacity 0.5s ease-in-out;
             position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         h1 {
             font-size: 1.4em;
+            margin-bottom: 10px;
         }
         p {
             font-size: 1.1em;
             text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+            margin-bottom: 10px;
         }
         .math {
-            font-size: 1.1em;
+            font-size: 1.3em;
             background: rgba(255, 255, 255, 0.2);
             display: inline-block;
             padding: 10px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
             font-family: 'Courier New', monospace;
-            margin: 10px 0;
+            margin: 15px auto;
         }
         .hidden {
             opacity: 0;
             pointer-events: none;
         }
         button {
-            margin-top: 20px;
+            margin-top: auto;
             padding: 10px 20px;
             font-size: 1.1em;
             border: none;
@@ -65,6 +74,28 @@
             cursor: pointer;
             width: 100%;
             max-width: 200px;
+            align-self: center;
+        }
+
+        /* Estrelas flutuantes */
+        .star {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: float 3s linear infinite;
+        }
+        @keyframes float {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -77,23 +108,44 @@
     
     <div class="container hidden" id="slide2">
         <h1>Você já está trilhando um novo caminho! 🌱</h1>
-        <p>Eu acho incrível ser amigo de alguém tão inteligente, e isso é maravilhoso</p>
-        <button onclick="nextSlide(2)">→</button>
+        <p>Eu acho incrível ser amigo de alguém tão inteligente, e isso é incrível!</p>
+        <button onclick="nextSlide(2)">clique →</button>
     </div>
     
     <div class="container hidden" id="slide3">
         <h1>Não desanime</h1>
         <p>Como diria Gauss:</p>
-        <p class="math">∑ k = \frac{n(n+1)}{2}</p>
-        <p>O seu trabalho acumulado levará você ao sucesso. Te amo e tô sempre aqui, seu sucesso é mera <strong>questão de tempo</strong>.🤍</p>
+        <p class="math">\( \sum_{k=1}^{n} k = \frac{n(n+1)}{2} \)</p>
+        <p>O seu trabalho acumulado levará você ao sucesso. Te amo e tô sempre aqui, seu sucesso é mera <strong>questão de tempo</strong>.</p>
     </div>
-    
+
     <script>
         let currentSlide = 1;
         function nextSlide(slide) {
             document.getElementById(`slide${slide}`).classList.add('hidden');
             document.getElementById(`slide${slide + 1}`).classList.remove('hidden');
+            MathJax.typeset(); // Atualiza a renderização do MathJax
         }
+
+        // Criar estrelas flutuantes
+        function createStar() {
+            const star = document.createElement("div");
+            star.classList.add("star");
+            document.body.appendChild(star);
+
+            const size = Math.random() * 3 + 2;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+
+            setTimeout(() => {
+                star.remove();
+            }, 3000);
+        }
+
+        setInterval(createStar, 300);
     </script>
 </body>
 </html>
