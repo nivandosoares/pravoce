@@ -3,52 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Você 🌟</title>
+    <title>Para Você 🤍</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             background: linear-gradient(to right, #1e3c72, #2a5298);
             color: #fff;
             font-family: 'Georgia', serif;
             text-align: center;
-            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden;
+            padding: 20px;
         }
         .container {
-            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-            max-width: 600px;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 0.5s ease-in-out;
+            position: absolute;
         }
-        h1, p {
+        h1 {
+            font-size: 1.4em;
+        }
+        p {
+            font-size: 1.1em;
             text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
         }
         .math {
-            font-size: 22px;
+            font-size: 1.1em;
             background: rgba(255, 255, 255, 0.2);
             display: inline-block;
             padding: 10px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
             font-family: 'Courier New', monospace;
+            margin: 10px 0;
         }
         .hidden {
             opacity: 0;
+            pointer-events: none;
         }
         button {
             margin-top: 20px;
             padding: 10px 20px;
-            font-size: 18px;
+            font-size: 1.1em;
             border: none;
             background: #ffcc00;
             color: #333;
             border-radius: 10px;
             cursor: pointer;
+            width: 100%;
+            max-width: 200px;
         }
     </style>
 </head>
@@ -61,7 +77,7 @@
     
     <div class="container hidden" id="slide2">
         <h1>Você já está trilhando um novo caminho! 🌱</h1>
-        <p>Eu acho incrível ser amigo de alguém tão inteligente, e isso é incrível!</p>
+        <p>Eu acho incrível ser amigo de alguém tão inteligente, e isso é maravilhoso</p>
         <button onclick="nextSlide(2)">→</button>
     </div>
     
@@ -69,7 +85,7 @@
         <h1>Não desanime</h1>
         <p>Como diria Gauss:</p>
         <p class="math">∑ k = \frac{n(n+1)}{2}</p>
-        <p>O seu trabalho acumulado levará você ao sucesso. Te amo e tô sempre aqui, seu sucesso é mera <strong>questão de tempo</strong></p>
+        <p>O seu trabalho acumulado levará você ao sucesso. Te amo e tô sempre aqui, seu sucesso é mera <strong>questão de tempo</strong>.🤍</p>
     </div>
     
     <script>
