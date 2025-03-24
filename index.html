@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Você 🌟</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: #fff;
+            font-family: 'Georgia', serif;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            max-width: 600px;
+            transition: opacity 1s ease-in-out;
+        }
+        h1, p {
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+        }
+        .math {
+            font-size: 22px;
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            font-family: 'Courier New', monospace;
+        }
+        .hidden {
+            opacity: 0;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            background: #ffcc00;
+            color: #333;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="slide1">
+        <h1>Sei que você não está feliz por não ter conseguido...</h1>
+        <p>Fiz isso pra dizer que tô muito orgulhoso da sua evolução. Cada passo importa.</p>
+        <button onclick="nextSlide(1)">→</button>
+    </div>
+    
+    <div class="container hidden" id="slide2">
+        <h1>Você já está trilhando um novo caminho! 🌱</h1>
+        <p>Eu acho incrível ser amigo de alguém tão inteligente, e isso é incrível!</p>
+        <button onclick="nextSlide(2)">→</button>
+    </div>
+    
+    <div class="container hidden" id="slide3">
+        <h1>Não desanime</h1>
+        <p>Como diria Gauss:</p>
+        <p class="math">∑ k = \frac{n(n+1)}{2}</p>
+        <p>O seu trabalho acumulado levará você ao sucesso. Te amo e tô sempre aqui, seu sucesso é mera <strong>questão de tempo</strong></p>
+    </div>
+    
+    <script>
+        let currentSlide = 1;
+        function nextSlide(slide) {
+            document.getElementById(`slide${slide}`).classList.add('hidden');
+            document.getElementById(`slide${slide + 1}`).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
